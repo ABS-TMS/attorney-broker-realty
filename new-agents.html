@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attorney Broker Realty — For Newly Licensed Agents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0C3057;
+    --navy-deep: #071E38;
+    --gold: #C8922A;
+    --gold-light: #E4BC72;
+    --cream: #F4F1EA;
+    --paper: #FBF9F4;
+    --ink: #241F18;
+    --slate: #4A4438;
+    --rust: #A33A2C;
+    --rule: #DDD6C8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    color: var(--navy);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .eyebrow {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  a { color: inherit; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(200,146,42,0.10), transparent 60%),
+      linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+    color: var(--cream);
+    padding: 100px 24px 90px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 5px solid var(--gold);
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(0deg, rgba(244,241,234,0.025) 0px, rgba(244,241,234,0.025) 1px, transparent 1px, transparent 3px);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 780px; margin: 0 auto; position: relative; }
+  .hero .eyebrow { color: var(--gold-light); margin-bottom: 22px; opacity: 0; animation: riseIn 0.7s ease-out 0.1s forwards; }
+  .hero h1 {
+    color: var(--cream);
+    font-size: clamp(2.2rem, 5.2vw, 3.6rem);
+    line-height: 1.08;
+    font-weight: 600;
+    margin-bottom: 26px;
+    opacity: 0; animation: riseIn 0.8s ease-out 0.25s forwards;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+    position: relative;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: #C9D3DE;
+    max-width: 620px;
+    margin-bottom: 40px;
+    opacity: 0; animation: riseIn 0.8s ease-out 0.4s forwards;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244,241,234,0.18);
+    opacity: 0; animation: riseIn 0.8s ease-out 0.55s forwards;
+  }
+  .hero-stat .num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.9rem;
+    color: var(--gold-light);
+    font-weight: 600;
+    display: block;
+    line-height: 1;
+  }
+  .hero-stat .lbl {
+    font-size: 0.8rem;
+    color: #A9B6C4;
+    margin-top: 6px;
+  }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 14px 30px;
+    border-radius: 3px;
+    text-decoration: none;
+    margin-top: 34px;
+    opacity: 0; animation: riseIn 0.8s ease-out 0.7s forwards;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .cta-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ---------- EXHIBIT SECTIONS ---------- */
+  section.exhibit { padding: 84px 24px; }
+  section.exhibit:nth-of-type(even) { background: var(--cream); }
+  .exhibit-head {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 8px;
+  }
+  .exhibit-tag {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--gold);
+    white-space: nowrap;
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    padding: 3px 11px;
+  }
+  .exhibit-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+  }
+  .exhibit-dek {
+    color: var(--slate);
+    font-size: 1.05rem;
+    max-width: 620px;
+    margin: 18px 0 44px;
+  }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* Findings (Exhibit A) */
+  .finding {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 22px;
+    padding: 28px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .finding:last-child { border-bottom: 1px solid var(--rule); }
+  .finding-mark {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--gold);
+  }
+  .finding h3 { font-size: 1.2rem; margin-bottom: 8px; }
+  .finding p { color: var(--slate); font-size: 0.98rem; max-width: 560px; }
+
+  /* Toolkit (Exhibit B) */
+  .toolkit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .toolkit-item {
+    background: var(--paper);
+    padding: 30px 28px;
+  }
+  .toolkit-item h3 {
+    font-size: 1.08rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .toolkit-item .mono-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(200,146,42,0.12);
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .toolkit-item p { color: var(--slate); font-size: 0.94rem; }
+  @media (max-width: 640px) { .toolkit-grid { grid-template-columns: 1fr; } }
+
+  .peek-btn {
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    padding: 12px 0 0;
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 3px;
+  }
+  .peek-btn:hover { color: var(--gold); }
+  .peek-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .peek-panel.open { max-height: 600px; }
+  .peek-inner {
+    margin-top: 14px;
+    background: var(--cream);
+    border: 1px dashed var(--rule);
+    border-radius: 5px;
+    padding: 16px 18px;
+    position: relative;
+  }
+  .peek-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .peek-q { font-size: 0.86rem; color: var(--slate); font-style: italic; margin-bottom: 10px; }
+  .peek-a { font-size: 0.88rem; margin-bottom: 10px; }
+  .peek-a strong { color: var(--navy); }
+  .peek-fb { font-size: 0.86rem; color: var(--slate); border-top: 1px solid var(--rule); padding-top: 10px; }
+  .peek-fb strong { color: var(--gold); }
+  .peek-fade {
+    position: relative;
+  }
+  .peek-fade::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 34px;
+    background: linear-gradient(180deg, transparent, var(--cream));
+  }
+  .peek-more { font-size: 0.78rem; color: var(--slate); font-style: italic; margin-top: 8px; }
+
+  /* Economics (Exhibit C) */
+  .cap-table {
+    background: var(--navy-deep);
+    color: var(--cream);
+    border-radius: 4px;
+    padding: 34px 36px;
+    margin-bottom: 30px;
+  }
+  .cap-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(244,241,234,0.14);
+    font-size: 0.98rem;
+    gap: 12px;
+  }
+  .cap-row:last-child { border-bottom: none; }
+  .cap-row .yr { color: #A9B6C4; font-family: 'Inter', sans-serif; font-size: 0.85rem; }
+  .cap-row .amt { font-family: 'Fraunces', Georgia, serif; font-size: 1.15rem; color: var(--gold-light); white-space: nowrap; }
+  .cap-note { color: var(--slate); font-size: 0.95rem; max-width: 600px; }
+
+  /* Broker (Exhibit D) */
+  .broker-card {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 26px;
+    align-items: start;
+    padding: 30px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .broker-avatar {
+    width: 90px; height: 90px;
+    border-radius: 3px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--gold-light);
+    font-size: 1.7rem;
+  }
+  .broker-card h3 { font-size: 1.15rem; margin-bottom: 4px; }
+  .broker-role { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+  .broker-card p { color: var(--slate); font-size: 0.96rem; }
+  @media (max-width: 560px) { .broker-card { grid-template-columns: 1fr; } .broker-avatar { width: 60px; height: 60px; font-size: 1.2rem; } }
+
+  /* ---------- CLOSING ---------- */
+  .closing {
+    background: var(--navy-deep);
+    color: var(--cream);
+    padding: 90px 24px 70px;
+    text-align: center;
+  }
+  .closing h2 { color: var(--cream); font-size: clamp(1.6rem, 3.6vw, 2.3rem); max-width: 560px; margin: 0 auto 18px; }
+  .closing p { color: #C9D3DE; max-width: 480px; margin: 0 auto 32px; font-size: 1.02rem; }
+  .closing-contact {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    color: #A9B6C4;
+    margin-top: 30px;
+  }
+  .closing-contact strong { color: var(--cream); }
+
+  footer {
+    background: var(--navy-deep);
+    color: #7C8896;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    text-align: center;
+    padding: 22px 24px 30px;
+    border-top: 1px solid rgba(244,241,234,0.1);
+  }
+
+  .audience-banner {
+    background: var(--gold);
+    color: var(--navy-deep);
+    text-align: center;
+    padding: 10px 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+</style>
+</head>
+<body>
+
+<div class="audience-banner">For newly licensed Texas real estate agents — not a consumer real estate service.</div>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Attorney Broker Realty &middot; A Division of Attorney Broker Services, LLC</div>
+    <h1>Most new agents get a welcome packet and a <em>sink-or-swim first year</em>. You get a system built to teach you the job while you're doing it.</h1>
+    <p class="hero-sub">The numbers are real: new agents earn a median of $8,100 in their first two years, and 62% make less than $10,000 — right as their first license renewal comes due. That's not a talent problem. It's a systems problem. We built the systems most brokerages skip.</p>
+    <a href="#contact" class="cta-btn">Start a Confidential Conversation →</a>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num">Day One</span><span class="lbl">The daily training habit starts your first day, not "eventually"</span></div>
+      <div class="hero-stat"><span class="num">51</span><span class="lbl">Agents currently sponsored</span></div>
+      <div class="hero-stat"><span class="num">$0</span><span class="lbl">Monthly desk fees — ever</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="exhibit">
+  <div class="wrap">
+    <div class="exhibit-head reveal">
+      <span class="exhibit-tag">Exhibit A</span>
+      <h2 class="exhibit-title">The First Two Years</h2>
+    </div>
+    <p class="exhibit-dek reveal">This is the window that actually decides whether you stay in this business. Here's what it really looks like — and why most new agents don't make it to their first renewal with a system that could've kept them.</p>
+
+    <div class="finding reveal">
+      <div class="finding-mark">01</div>
+      <div>
+        <h3>The money is brutal, and nobody tells you upfront</h3>
+        <p>New agents earn a median of just $8,100 in their first two years. 62% make less than $10,000. That's not a "some agents struggle" statistic — that's most new agents, and it lands right as your first license renewal comes due. (NAR 2025 Member Profile)</p>
+      </div>
+    </div>
+    <div class="finding reveal">
+      <div class="finding-mark">02</div>
+      <div>
+        <h3>"Sink or swim" isn't a training philosophy — it's the absence of one</h3>
+        <p>Most brokerages hand you a welcome packet, a login, and a "call if you need anything." Then the actual job — showings, negotiations, compliance, follow-up — has to be figured out alone, usually while your first deals are falling apart.</p>
+      </div>
+    </div>
+    <div class="finding reveal">
+      <div class="finding-mark">03</div>
+      <div>
+        <h3>The failure isn't sudden — it's slow, and quiet</h3>
+        <p>It rarely looks like quitting. It looks like a licensee who stops returning calls, picks up other work by the fall, and lets the license quietly go inactive the following spring. Nobody decides to fail. They just never had a system that made the daily habits automatic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="exhibit">  <div class="wrap">
+    <div class="exhibit-head reveal">
+      <span class="exhibit-tag">Exhibit B</span>
+      <h2 class="exhibit-title">The Toolkit</h2>
+    </div>
+    <p class="exhibit-dek reveal">You don't need to figure out "how real estate actually works" by trial and error. The daily habits and tools that experienced agents wish they'd had from day one — built in from your very first day, not something you discover the hard way in year three.</p>
+
+    <div class="toolkit-grid reveal">
+      <div class="toolkit-item">
+        <h3>Daily Compliance Training <span class="mono-tag">AI-Graded</span></h3>
+        <p>Not a PDF you skim once a year. A daily habit that keeps you fluent in the current TREC 20-19 form, graded in real time — with a direct line to your broker the moment something doesn't make sense.</p>
+        <button class="peek-btn" onclick="togglePeek('peek1', this)">See an example ↓</button>
+        <div class="peek-panel" id="peek1">
+          <div class="peek-inner">
+            <span class="peek-eyebrow">Sample scenario — Day 12</span>
+            <p class="peek-q">"Your buyer is purchasing as an LLC. The title company asks who's responsible for providing beneficial ownership information under Paragraph 20B — and who pays for it?"</p>
+            <p class="peek-a"><strong>Agent's answer:</strong> "The buyer provides it since they're the one forming the LLC."</p>
+            <p class="peek-fb"><strong>AI feedback:</strong> Right that it's the buyer's obligation — but under 20-19, the buyer also pays any charges tied to gathering and reporting that information. Worth flagging to entity buyers early, not at the closing table...</p>
+          </div>
+        </div>
+      </div>
+      <div class="toolkit-item">
+        <h3>Negotiation Templates <span class="mono-tag">Built-In</span></h3>
+        <p>Offer submissions, option period repair requests, lowball counters, low appraisals — email templates built from real transaction patterns, ready in seconds instead of a blank cursor.</p>
+        <button class="peek-btn" onclick="togglePeek('peek2', this)">See an example ↓</button>
+        <div class="peek-panel" id="peek2">
+          <div class="peek-inner peek-fade">
+            <span class="peek-eyebrow">Sample template — Low Appraisal</span>
+            <p class="peek-a">Subject: [Property Address] — Appraisal Came in Low</p>
+            <p class="peek-a">Hi [Listing Agent Name], wanted to loop you in quickly — the appraisal came in at $[amount], which is $[gap] under contract. My buyers still want to move forward. A few ways we could bridge the gap, open to whatever works best for your sellers...</p>
+            <p class="peek-more">Full template continues with three negotiation options and a close.</p>
+          </div>
+        </div>
+      </div>
+      <div class="toolkit-item">
+        <h3>Follow-Up Drafting <span class="mono-tag">AI-Drafted</span></h3>
+        <p>Open house follow-ups personalized to what a visitor actually asked about, drafted in seconds — not a generic mail-merge blast.</p>
+        <button class="peek-btn" onclick="togglePeek('peek3', this)">See an example ↓</button>
+        <div class="peek-panel" id="peek3">
+          <div class="peek-inner peek-fade">
+            <span class="peek-eyebrow">Sample output — Open House Follow-Up</span>
+            <p class="peek-a">Subject: Great meeting you Saturday, Sarah</p>
+            <p class="peek-a">Hi Sarah, thanks for stopping by 123 Main St this weekend — I remember you asking about the school district and mentioning the kitchen was a big draw. Wanted to follow up on the district question specifically, since I know that was on your mind...</p>
+            <p class="peek-more">Generated in seconds from four quick form fields — no blank page to stare at.</p>
+          </div>
+        </div>
+      </div>
+      <div class="toolkit-item">
+        <h3>Field Tools <span class="mono-tag">Mobile</span></h3>
+        <p>Property Scout and buyer intake, built for the property — not the desk you're not sitting at.</p>
+        <button class="peek-btn" onclick="togglePeek('peek4', this)">See an example ↓</button>
+        <div class="peek-panel" id="peek4">
+          <div class="peek-inner">
+            <span class="peek-eyebrow">What it's for</span>
+            <p class="peek-a">Standing in front of a property with a buyer who wants to know more right now? Property Scout pulls what you need on the spot. Meeting a new buyer at a showing instead of your office? Buyer Intake captures everything you need without a follow-up form later.</p>
+            <p class="peek-more">Built for the moment you're actually in, not the moment you get back to your desk.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="exhibit">
+  <div class="wrap">
+    <div class="exhibit-head reveal">
+      <span class="exhibit-tag">Exhibit C</span>
+      <h2 class="exhibit-title">The Economics — 10&#8209;9&#8209;8, Earned</h2>
+    </div>
+    <p class="exhibit-dek reveal">Your first year or two will have slow months — that's normal, not a red flag. What matters is whether your brokerage's structure punishes that, or accounts for it. Here, every dollar you generate counts toward your cumulative total permanently. A slow month doesn't erase progress you've already made.</p>
+
+    <div class="cap-table reveal">
+      <div class="cap-row"><span>Standard commission split</span><span class="amt">80 / 20</span></div>
+      <div class="cap-row"><span class="yr">Every dollar of company dollar you pay counts toward your cumulative total — not just this year's</span><span class="amt"></span></div>
+      <div class="cap-row"><span>Tier 1 — annual cap, until $10,000 cumulative</span><span class="amt">$10,000</span></div>
+      <div class="cap-row"><span>Tier 2 — annual cap, until $19,000 cumulative</span><span class="amt">$9,000</span></div>
+      <div class="cap-row"><span>Tier 3 — annual cap, permanent from here</span><span class="amt">$8,000</span></div>
+    </div>
+    <p class="cap-note reveal">Hit your tier's cap in any given year and you move to <strong style="color:var(--navy);">100% commission</strong> for the rest of that year — same as always. You choose how a tier upgrade applies: the moment you cross the threshold, or at your next annual review. Either way, once you've earned it, it's yours for good.</p>
+  </div>
+</section>
+
+<section class="exhibit">
+  <div class="wrap">
+    <div class="exhibit-head reveal">
+      <span class="exhibit-tag">Exhibit D</span>
+      <h2 class="exhibit-title">The Broker</h2>
+    </div>
+    <p class="exhibit-dek reveal">Major compliance policies go through outside legal review before they ever reach an agent — not a rubber stamp, an actual check.</p>
+
+    <div class="broker-card reveal">
+      <div class="broker-avatar">MJ</div>
+      <div>
+        <h3>Mike Jurecka</h3>
+        <div class="broker-role">Designated Broker &amp; Owner</div>
+        <p>A career built around doing things correctly, consistently applied to every compliance and legal risk decision across the brokerage. TREC #9007529.</p>
+      </div>
+    </div>
+    <div class="broker-card reveal">
+      <div class="broker-avatar">EB</div>
+      <div>
+        <h3>Ernest Brown</h3>
+        <div class="broker-role">Designated Supervisor</div>
+        <p>Your first call for day-to-day questions — before anything needs to escalate further.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing" id="contact">
+  <h2>If you're newly licensed — or about to be — let's have a direct conversation.</h2>
+  <p>No pressure, no scripted pitch — just an honest conversation about what the first two years actually look like, and whether this is the right place to spend them.</p>
+  <a href="mailto:ernestbrownrealtor@gmail.com?bcc=mike@attorneybrokerservices.com" class="cta-btn">Email Ernest Brown →</a>
+  <div class="closing-contact"><strong>Attorney Broker Realty</strong>, a division of <strong>Attorney Broker Services, LLC</strong> &middot; Denton, Texas &middot; TREC #9007529</div>
+</section>
+
+<footer>
+  &copy; 2026 Attorney Broker Services, LLC, operating as Attorney Broker Realty. All rights reserved. This page is for newly licensed and prospective agents evaluating brokerage sponsorship and is not an offer of employment. Broker: Attorney Broker Services, LLC, TREC #9007529.
+</footer>
+
+<script>
+  function togglePeek(id, btn) {
+    const panel = document.getElementById(id);
+    const isOpen = panel.classList.contains('open');
+    panel.classList.toggle('open', !isOpen);
+    btn.textContent = isOpen ? 'See an example ↓' : 'Hide example ↑';
+  }
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
